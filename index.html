@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew Ingram — Cybersecurity Specialist</title>
+<meta name="description" content="Andrew Ingram — Cybersecurity specialist with 5+ years securing financial networks. Incident response, penetration testing, DFIR, and offensive-security tooling.">
+<meta name="author" content="Andrew Ingram">
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="Andrew Ingram — Cybersecurity Specialist">
+<meta property="og:description" content="5+ years defending financial-sector networks. Incident response, pentesting, DFIR, and a deep bench of offensive-security tooling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aingram702.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* palette matched to aingram702.github.io/resume.html */
+    --bg:#0a192f;
+    --bg-2:#172a45;
+    --panel:rgba(23,42,69,.55);
+    --panel-2:rgba(10,25,47,.6);
+    --border:rgba(0,217,255,.16);
+    --border-bright:rgba(0,217,255,.4);
+    --text:#cdd6e4;
+    --text-strong:#f8f9fa;
+    --text-dim:#8497b0;
+    --text-faint:#5b6d86;
+    --accent:#00d9ff;        /* cyan — primary accent */
+    --accent-2:#00ff88;      /* green — secondary accent */
+    --accent-dim:#0097b3;
+    --accent-glow:rgba(0,217,255,.15);
+    --green-glow:rgba(0,255,136,.12);
+    --cyan:#33e1ff;
+    --amber:#00ff88;         /* remapped onto palette (green) */
+    --red:#ff5f6d;
+    --grad:linear-gradient(90deg,#00d9ff,#00ff88);
+    --grad-bg:linear-gradient(135deg,#0a192f 0%,#172a45 50%,#0a192f 100%);
+    --grad-btn:linear-gradient(135deg,#00d9ff,#00ff88);
+    --grad-btn-hover:linear-gradient(135deg,#00ff88,#00d9ff);
+    --radius:10px;
+    --maxw:1080px;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --display:'Audiowide','Inter',system-ui,sans-serif;
+    --sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    background-image:var(--grad-bg);
+    background-attachment:fixed;
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* subtle grid texture */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:
+      linear-gradient(rgba(0,217,255,.35) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,217,255,.35) 1px,transparent 1px);
+    background-size:44px 44px;
+    opacity:.10;
+    pointer-events:none;
+    z-index:0;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);
+  }
+  a{color:var(--accent);text-decoration:none;transition:color .18s}
+  a:hover{color:#fff}
+  ::selection{background:var(--accent-glow);color:#fff}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,25,47,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;letter-spacing:.5px;white-space:nowrap}
+  .brand .prompt{color:var(--accent)}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap}
+  .nav-links a{
+    font-family:var(--mono);font-size:13px;color:var(--text-dim);
+    padding:6px 12px;border-radius:6px;transition:all .18s;
+  }
+  .nav-links a:hover{color:var(--accent);background:var(--accent-glow)}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:76px 0 60px;position:relative}
+  .term-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12.5px;color:var(--accent);
+    border:1px solid var(--border-bright);border-radius:100px;
+    padding:6px 14px;background:var(--accent-glow);margin-bottom:26px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1.name{
+    font-family:var(--display);
+    font-size:clamp(2.3rem,5.4vw,4rem);font-weight:400;line-height:1.06;
+    color:var(--text-strong);letter-spacing:0;margin-bottom:16px;
+  }
+  h1.name .accent{
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    filter:drop-shadow(0 0 22px var(--accent-glow));
+  }
+  .role{
+    font-family:var(--mono);font-size:clamp(1rem,2.4vw,1.35rem);
+    color:var(--cyan);margin-bottom:24px;font-weight:500;
+  }
+  .role .cursor{display:inline-block;width:10px;height:1.1em;background:var(--accent);vertical-align:text-bottom;margin-left:3px;animation:blink 1.1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .lede{font-size:1.12rem;color:var(--text);max-width:660px;margin-bottom:34px}
+  .lede strong{color:#fff;font-weight:600}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+  .btn{
+    font-family:var(--mono);font-size:14px;font-weight:500;
+    padding:12px 22px;border-radius:8px;cursor:pointer;transition:all .18s;
+    display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;
+  }
+  .btn-primary{background-image:var(--grad-btn);color:#0a192f;font-weight:700;box-shadow:0 0 24px var(--accent-glow)}
+  .btn-primary:hover{background-image:var(--grad-btn-hover);color:#0a192f;transform:translateY(-2px);box-shadow:0 0 30px var(--accent-glow)}
+  .btn-ghost{border-color:var(--border-bright);color:var(--text);background:var(--panel)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+  .quickstats{display:flex;gap:32px;flex-wrap:wrap;padding-top:8px}
+  .qs{display:flex;flex-direction:column}
+  .qs .n{font-family:var(--mono);font-size:1.9rem;font-weight:700;color:#fff;line-height:1}
+  .qs .n span{color:var(--accent)}
+  .qs .l{font-size:12.5px;color:var(--text-dim);margin-top:6px;letter-spacing:.3px}
+
+  /* ---------- SECTION ---------- */
+  section{padding:64px 0;position:relative}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:38px}
+  .sec-num{font-family:var(--mono);font-size:14px;color:var(--accent)}
+  .sec-title{
+    font-family:var(--display);font-size:clamp(1.25rem,3vw,1.6rem);font-weight:400;letter-spacing:0;white-space:nowrap;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border-bright),transparent)}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+  .about-grid p{color:var(--text);margin-bottom:16px}
+  .about-grid p strong{color:#fff}
+  .id-card{
+    background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;font-family:var(--mono);font-size:13.5px;
+  }
+  .id-card .ln{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border);flex-wrap:wrap}
+  .id-card .ln:last-child{border-bottom:none}
+  .id-card .k{color:var(--text-faint);min-width:96px}
+  .id-card .v{color:var(--text)}
+  .id-card .v a{color:var(--cyan)}
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent-dim),var(--border))}
+  .job{position:relative;margin-bottom:34px}
+  .job::before{content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 12px var(--accent-glow)}
+  .job.current::before{background:var(--accent)}
+  .job-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin-bottom:4px}
+  .job-title{font-size:1.18rem;font-weight:700;color:#fff}
+  .job-co{color:var(--accent);font-weight:600}
+  .job-date{font-family:var(--mono);font-size:12.5px;color:var(--text-dim);white-space:nowrap;border:1px solid var(--border);padding:3px 10px;border-radius:100px}
+  .job-loc{font-size:13px;color:var(--text-faint);margin-bottom:12px;font-family:var(--mono)}
+  .job ul{list-style:none;display:grid;gap:8px}
+  .job ul li{position:relative;padding-left:22px;color:var(--text);font-size:.97rem}
+  .job ul li::before{content:"▹";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+  .card{
+    background:linear-gradient(160deg,var(--panel),var(--panel-2));
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;transition:all .22s;position:relative;overflow:hidden;
+  }
+  .card::after{content:"";position:absolute;inset:0;border-radius:var(--radius);border:1px solid transparent;transition:border-color .22s;pointer-events:none}
+  .card:hover{transform:translateY(-4px);border-color:var(--border-bright)}
+  .card:hover::after{border-color:var(--accent-glow)}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+  .card h3{font-size:1.18rem;color:#fff;font-weight:700;display:flex;align-items:center;gap:9px}
+  .card h3 .ico{color:var(--accent)}
+  .lang-badge{font-family:var(--mono);font-size:11px;color:var(--amber);border:1px solid var(--border-bright);padding:3px 9px;border-radius:100px;white-space:nowrap}
+  .card p{font-size:.94rem;color:var(--text-dim);margin-bottom:16px;flex:1}
+  .card p strong{color:var(--text)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--cyan);background:rgba(67,209,255,.08);border:1px solid rgba(67,209,255,.18);padding:2px 9px;border-radius:5px}
+  .card-links{display:flex;gap:16px;font-family:var(--mono);font-size:13px;margin-top:auto}
+  .card-links a{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim)}
+  .card-links a:hover{color:var(--accent)}
+
+  .more-repos{margin-top:32px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px 26px}
+  .more-repos h4{font-family:var(--mono);font-size:14px;color:var(--text);margin-bottom:16px;font-weight:500}
+  .more-repos h4 span{color:var(--accent)}
+  .repo-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+  .repo-row{display:flex;align-items:baseline;gap:8px;font-size:.9rem;padding:6px 0}
+  .repo-row a{font-family:var(--mono);color:var(--text);font-size:.9rem}
+  .repo-row a:hover{color:var(--accent)}
+  .repo-row .rl{font-family:var(--mono);font-size:10.5px;color:var(--text-faint);border:1px solid var(--border);padding:1px 7px;border-radius:4px;white-space:nowrap}
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+  .skill-cat{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+  .skill-cat h4{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13px;color:var(--text);background:var(--bg-2);border:1px solid var(--border);padding:5px 12px;border-radius:6px;transition:all .18s}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- CREDENTIALS ---------- */
+  .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .cred-col h4{font-family:var(--mono);font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+  .cred-item{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent-dim);border-radius:8px;padding:14px 18px;margin-bottom:12px}
+  .cred-item .t{color:#fff;font-weight:600;font-size:.98rem}
+  .cred-item .s{font-family:var(--mono);font-size:12.5px;color:var(--text-dim);margin-top:3px}
+  .metric-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+  .metric{flex:1;min-width:130px;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+  .metric .n{font-family:var(--mono);font-size:1.7rem;color:var(--accent);font-weight:700;line-height:1}
+  .metric .l{font-size:12px;color:var(--text-dim);margin-top:6px}
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:linear-gradient(160deg,var(--panel),var(--panel-2));
+    border:1px solid var(--border-bright);border-radius:14px;padding:44px 34px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .contact-box::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:120%;height:80%;background:radial-gradient(ellipse at center,var(--accent-glow),transparent 70%);pointer-events:none}
+  .contact-box h3{font-family:var(--display);font-weight:400;font-size:clamp(1.4rem,3.4vw,1.85rem);color:var(--text-strong);margin-bottom:14px;position:relative}
+  .contact-box p{color:var(--text-dim);max-width:520px;margin:0 auto 26px;position:relative}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--border);padding:30px 0;text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--text-faint)}
+  footer .sig{color:var(--accent)}
+
+  svg.icn{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;flex-shrink:0}
+
+  @media(max-width:720px){
+    .about-grid{grid-template-columns:1fr}
+    .cred-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    header.hero{padding:52px 0 40px}
+    .quickstats{gap:22px}
+    section{padding:48px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><span class="prompt">root@ingram</span>:~$ whoami</div>
+    <div class="nav-links">
+      <a href="#about">./about</a>
+      <a href="#experience">./experience</a>
+      <a href="#projects">./projects</a>
+      <a href="#skills">./skills</a>
+      <a href="#credentials">./credentials</a>
+      <a href="#contact">./contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="term-tag"><span class="dot"></span> AVAILABLE FOR SECURITY ROLES</div>
+    <h1 class="name">Andrew <span class="accent">Ingram</span></h1>
+    <div class="role">Cybersecurity Specialist<span class="cursor"></span></div>
+    <p class="lede">
+      <strong>5+ years</strong> defending financial-sector networks — incident response, penetration testing,
+      and security operations for community and regional banks. I build offensive-security tooling to understand
+      how attackers work, then use that to harden the systems I protect.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">
+        <svg class="icn" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+        Get in touch
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aingram702" target="_blank" rel="noopener">
+        <svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg>
+        View GitHub
+      </a>
+      <a class="btn btn-ghost" href="https://aingram702.github.io/resume.html" target="_blank" rel="noopener">
+        <svg class="icn" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        Résumé
+      </a>
+    </div>
+    <div class="quickstats">
+      <div class="qs"><div class="n">5<span>+</span></div><div class="l">Years in security</div></div>
+      <div class="qs"><div class="n">1460<span>+</span></div><div class="l">Immersive Labs completed</div></div>
+      <div class="qs"><div class="n">Top <span>1%</span></div><div class="l">TryHackMe global rank</div></div>
+      <div class="qs"><div class="n">16<span>+</span></div><div class="l">Public security tools</div></div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head"><span class="sec-num">01.</span><h2 class="sec-title">About</h2><span class="sec-line"></span></div>
+    <div class="about-grid">
+      <div>
+        <p>
+          I'm a cybersecurity specialist based in Cincinnati, Ohio, currently protecting systems and networks
+          in the banking sector. My day-to-day spans <strong>incident response, risk assessment, vulnerability
+          management, and security awareness</strong> — but my background runs deeper than any single role.
+        </p>
+        <p>
+          At EAGLE.bank I served as <strong>assistant to the CISO</strong>, running security audits, penetration
+          tests, and vendor assessments; monitoring events through IDS/SIEM tooling; managing incident response and
+          fraud investigations; and reporting the bank's security posture directly to the board of directors.
+        </p>
+        <p>
+          Outside of work I build — a lot. From ESP32 firmware and RF testing toolkits to a post-quantum encrypted
+          messenger and a unified OSINT platform, I use hands-on projects to stay sharp on both the offensive and
+          defensive sides of the field. I've been running my own IT and security consultancy,
+          <strong>Ingram Technologies</strong>, since 2016.
+        </p>
+      </div>
+      <div class="id-card">
+        <div class="ln"><span class="k">$ user</span><span class="v">Andrew Ingram</span></div>
+        <div class="ln"><span class="k">$ role</span><span class="v">Cybersecurity Specialist</span></div>
+        <div class="ln"><span class="k">$ location</span><span class="v">Cincinnati, Ohio</span></div>
+        <div class="ln"><span class="k">$ sector</span><span class="v">Financial / Banking</span></div>
+        <div class="ln"><span class="k">$ focus</span><span class="v">IR · Pentest · DFIR · OSINT</span></div>
+        <div class="ln"><span class="k">$ status</span><span class="v" style="color:var(--accent)">open to opportunities</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head"><span class="sec-num">02.</span><h2 class="sec-title">Experience</h2><span class="sec-line"></span></div>
+    <div class="timeline">
+
+      <div class="job current">
+        <div class="job-head">
+          <div class="job-title">IT Administrator <span style="color:var(--text-faint);font-weight:400">·</span> <span class="job-co">LCNB National Bank</span></div>
+          <div class="job-date">Apr 2024 — Present</div>
+        </div>
+        <div class="job-loc">Lebanon, OH</div>
+        <ul>
+          <li>Collaborate with the Risk department on secure system configurations and hardening standards</li>
+          <li>Troubleshoot hardware, software, and network issues across the organization</li>
+          <li>Support the delivery of company-wide cybersecurity awareness training</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">IT Administrator &amp; Information Security Specialist <span style="color:var(--text-faint);font-weight:400">·</span> <span class="job-co">EAGLE.bank</span></div>
+          <div class="job-date">Sep 2020 — Apr 2024</div>
+        </div>
+        <div class="job-loc">Cincinnati, OH</div>
+        <ul>
+          <li>Developed and implemented organizational security measures as assistant to the CISO</li>
+          <li>Conducted security audits, penetration tests, and third-party vendor risk assessments</li>
+          <li>Monitored security events using IDS and SIEM tooling; managed incident response and fraud investigations</li>
+          <li>Authored monthly cybersecurity reports presented to the board of directors</li>
+          <li>Served as the organization's FS-ISAC member for threat-intelligence sharing</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Owner &amp; Operator <span style="color:var(--text-faint);font-weight:400">·</span> <span class="job-co">Ingram Technologies</span></div>
+          <div class="job-date">Sep 2016 — Present</div>
+        </div>
+        <div class="job-loc">Ohio</div>
+        <ul>
+          <li>Provide IT support, networking, and cybersecurity consulting to small-business clients</li>
+          <li>Deliver security assessments, hardening, and remediation guidance on an engagement basis</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-head"><span class="sec-num">03.</span><h2 class="sec-title">Featured Projects</h2><span class="sec-line"></span></div>
+    <div class="proj-grid">
+
+      <!-- SubGHzuki -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> SubGHzuki</h3>
+          <span class="lang-badge">C++</span>
+        </div>
+        <p>Wireless-security testing firmware for the LilyGO T-Embed CC1101 (ESP32-S3). A full multi-radio toolkit — <strong>Sub-GHz</strong> spectrum analysis and OOK capture/replay, <strong>WiFi</strong> recon, <strong>BLE</strong> HID with a DuckyScript engine, RFID/NFC cloning, NRF24, and IR — all driven from a password-protected WebSocket console.</p>
+        <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">CC1101</span><span class="tag">RF</span><span class="tag">Arduino</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/SubGHzuki" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+      <!-- HexBox -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> HexBox</h3>
+          <span class="lang-badge">Python</span>
+        </div>
+        <p>A Raspberry Pi red-team platform that unifies <strong>seven Hak5 devices</strong>, a Flipper Zero, and ESP32 hardware under one authenticated dashboard. Aggregates loot, auto-parses NTLM hashes and AD data, supports encrypted DNS/HTTPS exfil, and integrates the <strong>Sliver C2</strong> framework.</p>
+        <div class="tags"><span class="tag">Flask</span><span class="tag">Hak5</span><span class="tag">C2</span><span class="tag">Red Team</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/HexBox" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+      <!-- Lattix -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> Lattix</h3>
+          <span class="lang-badge">JavaScript</span>
+        </div>
+        <p>A post-quantum secure messenger and file-sharing app with a <strong>zero-knowledge relay</strong> — the server can't read or forge messages. Built on NIST primitives: <strong>ML-KEM-768</strong>, <strong>ML-DSA-65</strong>, AES-256-GCM, and HKDF, with E2E group chats, disappearing messages, and fingerprint verification.</p>
+        <div class="tags"><span class="tag">Post-Quantum</span><span class="tag">FastAPI</span><span class="tag">E2EE</span><span class="tag">Crypto</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/Lattix" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+      <!-- OSINT Master Tool -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> OSINT Master Tool</h3>
+          <span class="lang-badge">Python</span>
+        </div>
+        <p>A unified intelligence-gathering suite with a professional web GUI wrapping <strong>15+ OSINT tools</strong> (Sherlock, Blackbird, SpiderFoot, theHarvester) plus built-in geolocation, WHOIS/DNS, and hash utilities. Security-first: AES-256 key storage, CSRF protection, input validation, and path-traversal defense.</p>
+        <div class="tags"><span class="tag">Flask</span><span class="tag">OSINT</span><span class="tag">SSE</span><span class="tag">Recon</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/OSINT-Master-Tool" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+      <!-- ESP32-Net -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> ESP32-Net</h3>
+          <span class="lang-badge">C++</span>
+        </div>
+        <p>A distributed <strong>defensive</strong> wireless-recon toolkit: a coordinator dashboard plus three headless ESP32-S3 nodes doing WiFi surveying with GPS, passive 802.11 monitoring with intrusion detection, and BLE/GATT enumeration. Passive-only by design — live capture, watchlist alerting, and CSV export.</p>
+        <div class="tags"><span class="tag">PlatformIO</span><span class="tag">IDS</span><span class="tag">802.11</span><span class="tag">BLE</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/ESP32-Net" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+      <!-- RedTeam Recon Dashboard -->
+      <div class="card">
+        <div class="card-top">
+          <h3><span class="ico">◈</span> RedTeam Recon Dashboard</h3>
+          <span class="lang-badge">JavaScript</span>
+        </div>
+        <p>A Chrome (Manifest V3) extension that aggregates passive recon for the active tab into one popup: <strong>WHOIS/RDAP</strong> registration, DNS records, technology fingerprinting, and open ports via Shodan's InternetDB. Streams results progressively using only free, keyless HTTPS services — zero config.</p>
+        <div class="tags"><span class="tag">Chrome MV3</span><span class="tag">Recon</span><span class="tag">Shodan</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aingram702/RedTeam-Recon-Dashboard" target="_blank" rel="noopener"><svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg> Source</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="more-repos">
+      <h4><span>$</span> ls ~/more-projects</h4>
+      <div class="repo-list">
+        <div class="repo-row"><a href="https://github.com/aingram702/Stealth-Raider" target="_blank" rel="noopener">Stealth-Raider</a><span class="rl">JS</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/wifi-IDS" target="_blank" rel="noopener">wifi-IDS</a><span class="rl">C++</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/ESP32-Wardriver" target="_blank" rel="noopener">ESP32-Wardriver</a><span class="rl">C++</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/ESP32-BlueDriver" target="_blank" rel="noopener">ESP32-BlueDriver</a><span class="rl">C++</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/ESP32-WarSniffer" target="_blank" rel="noopener">ESP32-WarSniffer</a><span class="rl">C++</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/LOLBin-Reference-Extension" target="_blank" rel="noopener">LOLBin-Reference-Extension</a><span class="rl">PY</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/Tab-Hibernator-Pro---DEV-Edition" target="_blank" rel="noopener">Tab-Hibernator-Pro</a><span class="rl">JS</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/lattix-proxy-server" target="_blank" rel="noopener">lattix-proxy-server</a><span class="rl">JS</span></div>
+        <div class="repo-row"><a href="https://github.com/aingram702/DuckyScript_Baby_Pool" target="_blank" rel="noopener">DuckyScript_Baby_Pool</a><span class="rl">DUCKY</span></div>
+      </div>
+      <div style="margin-top:18px"><a href="https://github.com/aingram702?tab=repositories" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px">→ view all repositories on GitHub</a></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head"><span class="sec-num">04.</span><h2 class="sec-title">Technical Skills</h2><span class="sec-line"></span></div>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <h4>Defense &amp; Ops</h4>
+        <div class="chips">
+          <span class="chip">MDR / EDR</span><span class="chip">IDS / IPS</span><span class="chip">SIEM</span>
+          <span class="chip">Incident Response</span><span class="chip">DFIR</span><span class="chip">Honeypots</span>
+          <span class="chip">OS Hardening</span><span class="chip">Active Directory</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Offense &amp; Assessment</h4>
+        <div class="chips">
+          <span class="chip">Penetration Testing</span><span class="chip">Vuln Scanning (Nessus)</span>
+          <span class="chip">Risk Assessment</span><span class="chip">Security Audits</span>
+          <span class="chip">OSINT / CTI</span><span class="chip">Red Team Tooling</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Engineering</h4>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Bash</span><span class="chip">C++ / Arduino</span>
+          <span class="chip">JavaScript</span><span class="chip">Flask / FastAPI</span><span class="chip">ESP32 / PlatformIO</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Governance</h4>
+        <div class="chips">
+          <span class="chip">Vendor Risk</span><span class="chip">Business Continuity</span>
+          <span class="chip">Board Reporting</span><span class="chip">Security Awareness</span>
+          <span class="chip">Fraud Investigation</span><span class="chip">FS-ISAC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="sec-head"><span class="sec-num">05.</span><h2 class="sec-title">Credentials &amp; Training</h2><span class="sec-line"></span></div>
+
+    <div class="metric-row">
+      <div class="metric"><div class="n">1460+</div><div class="l">Immersive Labs completed</div></div>
+      <div class="metric"><div class="n">Top 1%</div><div class="l">TryHackMe ranking</div></div>
+      <div class="metric"><div class="n">5+ yrs</div><div class="l">Financial-sector security</div></div>
+    </div>
+
+    <div class="cred-grid">
+      <div class="cred-col">
+        <h4>Education</h4>
+        <div class="cred-item">
+          <div class="t">Bank Technology Security School</div>
+          <div class="s">University of Wisconsin · 2022</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">A.A.S. Cybersecurity &amp; Information Assurance</div>
+          <div class="s">Ivy Tech · 2016 – 2018</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">Technical Certificate, Software Development</div>
+          <div class="s">Ivy Tech · 2018</div>
+        </div>
+      </div>
+      <div class="cred-col">
+        <h4>Certifications &amp; Training</h4>
+        <div class="cred-item">
+          <div class="t">CISA — Cyber Risk Management</div>
+          <div class="s">Cybersecurity &amp; Infrastructure Security Agency</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">CISA — Cyber Intelligence</div>
+          <div class="s">Cybersecurity &amp; Infrastructure Security Agency</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">CISA — Cybersecurity for Managers</div>
+          <div class="s">Cybersecurity &amp; Infrastructure Security Agency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-head"><span class="sec-num">06.</span><h2 class="sec-title">Contact</h2><span class="sec-line"></span></div>
+    <div class="contact-box">
+      <h3>Let's talk security.</h3>
+      <p>Open to cybersecurity roles and consulting engagements. Whether you're hiring, need an assessment, or want to talk shop about RF hacking and post-quantum crypto — reach out.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:aingram702@pm.me">
+          <svg class="icn" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+          aingram702@pm.me
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/andrew-ingram-702" target="_blank" rel="noopener">
+          <svg class="icn" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><path d="M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/aingram702" target="_blank" rel="noopener">
+          <svg class="icn" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.5V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Built &amp; secured by <span class="sig">Andrew Ingram</span> · Cincinnati, OH · <span class="sig">$</span> exit 0</p>
+</footer>
+
+</body>
+</html>
